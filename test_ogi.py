@@ -1,4 +1,4 @@
-from support_functions_1 import Strat_0
+from support_functions import Strat_0
 import pandas as pd
 import numpy as np
 import pytest
@@ -90,22 +90,22 @@ class TestStrat_0(object):
         fit_begin_index_max_lhs = pd.read_pickle('{}lhs_data/{}'\
                                                                .format(path, fit_begin_index_max_file.rsplit('/', 1)[-1]))
 
-        fit_begin_index_max_lhs = fit_begin_index_max_lhs.loc[fit_begin_index_max_lhs['MONTH_NUM'] == 24180]
+        fit_begin_index_max_lhs = fit_begin_index_max_lhs.loc[fit_begin_index_max_lhs['fr_month_num'] == 24180]
 
         fit_end_index_max_lhs = pd.read_pickle('{}lhs_data/{}'\
                                                                .format(path, fit_end_index_max_file.rsplit('/', 1)[-1]))
 
-        fit_end_index_max_lhs = fit_end_index_max_lhs.loc[fit_end_index_max_lhs['MONTH_NUM'] == 24180] 
+        fit_end_index_max_lhs = fit_end_index_max_lhs.loc[fit_end_index_max_lhs['fr_month_num'] == 24180] 
 
         test_begin_index_min_lhs = pd.read_pickle('{}lhs_data/{}'\
                                                                .format(path, test_begin_index_min_file.rsplit('/', 1)[-1]))
 
-        test_begin_index_min_lhs = test_begin_index_min_lhs.loc[test_begin_index_min_lhs['MONTH_NUM'] == 24181]  
+        test_begin_index_min_lhs = test_begin_index_min_lhs.loc[test_begin_index_min_lhs['fr_month_num'] == 24181]  
 
         test_end_index_min_lhs = pd.read_pickle('{}lhs_data/{}'\
                                                                .format(path, test_end_index_min_file.rsplit('/', 1)[-1]))
 
-        test_end_index_min_lhs = test_end_index_min_lhs.loc[test_end_index_min_lhs['MONTH_NUM'] == 24181]
+        test_end_index_min_lhs = test_end_index_min_lhs.loc[test_end_index_min_lhs['fr_month_num'] == 24181]
 
         # Test RHS
         assert fit_begin_index_max_rhs.index.max() < test_begin_index_min_rhs.index.min()
