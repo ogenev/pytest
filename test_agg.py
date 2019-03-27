@@ -27,15 +27,6 @@ class Test_Aggregators(object):
 
                 #Drop non-trade columns
                 tick_df = tick_df.dropna(subset = ['TRADE_SIZE'])
-                
-                #Pad prices
-                list_columns        = ['BID_SIZE', 'ASK_SIZE', 'BID_PRICE', 'ASK_PRICE']
-                tick_df['datetime'] = pandas.to_datetime(tick_df.ACTIVITY_DATETIME,
-                                                 utc  = False)
-
-                tick_df = tick_df.pipe(this_merger.select_padder,
-                            list_columns = list_columns)
-
 
                 tick_df_list.append(tick_df)
 
